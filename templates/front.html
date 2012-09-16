@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/static/main.css" />
+		<title>/Max's/</title>
+	</head>
+
+<body>
+	<h1>Ping your location with an art object</h1>
+	<form method = post>
+		<label>
+		<div>title</div>
+		<input type ="text" name="title", value={{title}}>
+		</label>
+
+		<label>
+			<div>art</div>
+			<textarea name="art">{{art}}</textarea>
+		</label>
+		<div class="error"> {{error}} </div>
+		<input type="submit">
+	</form>
+
+	{% if img_url %}
+	<img class="map" src="{{img_url}}">
+	{% endif %}
+<hr>
+
+{% for art in arts %}
+<div class="art">
+	<div class="art-title">{{art.tile}}</div>
+	<pre class="art-body">{{art.art}}</pre>
+</div>
+{% endfor %}
+</body>
+</html>
